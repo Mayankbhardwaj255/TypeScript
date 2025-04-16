@@ -99,6 +99,7 @@ interface Rectangle {
     length: number,
     width: number
 }
+//The "kind" field is a discriminant — a special field that helps TypeScript know exactly what shape you're dealing with. This technique is called a discriminated union
 
 type Shape = Circle | Square | Rectangle
 
@@ -108,6 +109,7 @@ function getTrueShape(shape: Shape){
     }
     //return shape.side * shape.side
 }
+//🔴 Problem: This function is unsafe because it does not handle all shape types. TypeScript may complain depending on your strictness settings.
 
 
 function getArea(shape: Shape){
